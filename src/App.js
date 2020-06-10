@@ -17,13 +17,15 @@ function App() {
         //     .then(response => response.json())
         //     .then(json => setUsers(json))
 
-        axios.get(apiUrl)
-            .then( (response) => {
-                setUsers(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        axios.get(apiUrl, {
+            // headers: {
+            //     'Access-Control-Allow-Origin': '*',
+            // }
+        }).then((response) => {
+            setUsers(response.data);
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     const onSaveUser = (data) => {
