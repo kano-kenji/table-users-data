@@ -13,10 +13,10 @@ function App() {
 
     const addUsers = () => {
         axios.get(apiUrl)
-            .then(function (response) {
+            .then( response => {
                 setUsers(response.data);
             })
-            .catch(function (error) {
+            .catch(error => {
                 console.log(error);
             });
     }
