@@ -3,9 +3,7 @@ import axios from "axios";
 import {Table} from "react-bootstrap";
 import EditData from "./EditData/EditData";
 
-const cors = "https://cors-anywhere.herokuapp.com";
-const apiUrl = "https://jsonplaceholder.typicode.com/users/";
-
+const apiUrl = 'https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/users';
 function App() {
 
     const [users, setUsers] = useState([]);
@@ -18,15 +16,16 @@ function App() {
         //     .then(response => response.json())
         //     .then(json => setUsers(json))
 
-        axios.get(cors + apiUrl, {
-            // headers: {
-            //     'Access-Control-Allow-Origin': '*',
-            // }
-        }).then((response) => {
-            setUsers(response.data);
-        }).catch((error) => {
-            console.log(error);
-        });
+        axios({
+            method: 'get',
+            url: apiUrl
+        })
+            .then((response) => {
+                setUsers(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     const onSaveUser = (data) => {
