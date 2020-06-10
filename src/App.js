@@ -3,7 +3,8 @@ import axios from "axios";
 import {Table} from "react-bootstrap";
 import EditData from "./EditData/EditData";
 
-const apiUrl = "https://jsonplaceholder.typicode.com/users/";
+// const apiUrl = "https://jsonplaceholder.typicode.com/users/";
+const apiUrl = 'https://jsonplaceholder.typicode.com/users';
 
 function App() {
 
