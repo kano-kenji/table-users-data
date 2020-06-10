@@ -18,7 +18,7 @@ function App() {
 
         axios({
             method: 'get',
-            url: apiUrl
+            url: 'https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/users'
         })
             .then((response) => {
                 setUsers(response.data);
