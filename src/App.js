@@ -3,8 +3,7 @@ import axios from "axios";
 import {Table} from "react-bootstrap";
 import EditData from "./EditData/EditData";
 
-// const apiUrl = "https://jsonplaceholder.typicode.com/users/";
-// const apiUrl = 'https://jsonplaceholder.typicode.com/users';
+const apiUrl = "https://jsonplaceholder.typicode.com/users/";
 
 function App() {
 
@@ -14,18 +13,17 @@ function App() {
 
     const addUsers = () => {
 
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then(json => setUsers(json))
+        // fetch(apiUrl)
+        //     .then(response => response.json())
+        //     .then(json => setUsers(json))
 
-
-        // axios.get(apiUrl)
-        //     .then( response => {
-        //         setUsers(response.data);
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     });
+        axios.get(apiUrl)
+            .then( response => {
+                setUsers(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     const onSaveUser = (data) => {
