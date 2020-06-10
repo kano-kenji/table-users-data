@@ -3,7 +3,7 @@ import axios from "axios";
 import {Table} from "react-bootstrap";
 import EditData from "./EditData/EditData";
 
-const cors = "https://cors-anywhere.herokuapp.com/";
+const cors = "https://cors-anywhere.herokuapp.com";
 const apiUrl = "https://jsonplaceholder.typicode.com/users/";
 
 function App() {
