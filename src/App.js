@@ -3,6 +3,7 @@ import axios from "axios";
 import {Table} from "react-bootstrap";
 import EditData from "./EditData/EditData";
 
+const cors = "https://cors-anywhere.herokuapp.com/";
 const apiUrl = "https://jsonplaceholder.typicode.com/users/";
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
         //     .then(response => response.json())
         //     .then(json => setUsers(json))
 
-        axios.get(apiUrl, {
+        axios.get(cors + apiUrl, {
             // headers: {
             //     'Access-Control-Allow-Origin': '*',
             // }
