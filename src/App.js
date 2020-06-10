@@ -18,10 +18,10 @@ function App() {
         //     .then(json => setUsers(json))
 
         axios.get(apiUrl)
-            .then( response => {
+            .then( (response) => {
                 setUsers(response.data);
             })
-            .catch(error => {
+            .catch((error) => {
                 console.log(error);
             });
     }
