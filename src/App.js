@@ -12,10 +12,7 @@ function App() {
     const title = ['#','Name','User Name', 'Email', 'Address', 'Phone', 'Website', 'Company'];
 
     const addUsers = () => {
-        axios({
-            method: 'get',
-            url: apiUrl
-        })
+        axios.get(apiUrl)
             .then(function (response) {
                 setUsers(response.data);
             })
