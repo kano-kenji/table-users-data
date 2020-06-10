@@ -18,6 +18,9 @@ function App() {
         })
             .then(function (response) {
                 setUsers(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
             });
     }
 
