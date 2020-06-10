@@ -3,11 +3,9 @@ import axios from "axios";
 import {Table} from "react-bootstrap";
 import EditData from "./EditData/EditData";
 
-const apiUrl = 'https://cors-anywhere.herokuapp.com/https://jsonplaceholder.typicode.com/users';
 function App() {
 
     const [users, setUsers] = useState([]);
-
     const title = ['#','Name','User Name', 'Email', 'Address', 'Phone', 'Website', 'Company'];
 
     const addUsers = () => {
