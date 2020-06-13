@@ -7,7 +7,7 @@ const EditData = (props) => {
 
     const handleChange = (e) => {
         setData(e.target.value);
-        setIsValidData(data.length > 0);
+        setIsValidData(e.target.value.length > 0);
     }
 
     const handleSave = (e) => {
