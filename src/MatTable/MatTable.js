@@ -85,12 +85,39 @@ const MatTable = (props) => {
                                 </>
                         }
                     ]}
-                    data={
-                        props.users.map(user => {
+                    data={props.users}
+                    editable={{
+                        onRowAdd: newData =>
+                            new Promise((resolve, reject) => {
+                                setTimeout(() => {
+                                    props.setUsers([...props.users, newData]);
 
-                            return user;
-                        })
-                    }
+                                    resolve();
+                                }, 1000)
+                            }),
+                        onRowUpdate: (newData, oldData) =>
+                            new Promise((resolve, reject) => {
+                                setTimeout(() => {
+                                    const dataUpdate = [...props.users];
+                                    const index = oldData.tableData.id;
+                                    dataUpdate[index] = newData;
+                                    props.setUsers([...dataUpdate]);
+
+                                    resolve();
+                                }, 1000)
+                            }),
+                        onRowDelete: oldData =>
+                            new Promise((resolve, reject) => {
+                                setTimeout(() => {
+                                    const dataDelete = [...props.users];
+                                    const index = oldData.tableData.id;
+                                    dataDelete.splice(index, 1);
+                                    props.setUsers([...dataDelete]);
+
+                                    resolve()
+                                }, 1000)
+                            }),
+                    }}
                     />
             </div>
         </div>
