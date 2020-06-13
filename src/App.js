@@ -6,6 +6,8 @@ import MatTable from "./MatTable/MatTable";
 
 
 function App() {
+    //fix Warning about deprecated findDOMNode usage
+    const wrapper = React.createRef();
 
     const [users, setUsers] = useState([]);
     const title = ['#','Name','User Name', 'Email', 'Address', 'Phone', 'Website', 'Company'];
@@ -39,7 +41,7 @@ function App() {
     }
 
     return (
-        <Router>
+        <Router ref={wrapper}>
             <ul className="list-group list-group-horizontal">
                 <li className="list-group-item flex-fill text-center">
                     <Link to="/simple-table">Simple table</Link>

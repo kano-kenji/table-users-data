@@ -39,7 +39,6 @@ const tableIcons = {
 };
 
 const MatTable = (props) => {
-    
     const addUsers = () => {
         props.addUsers();
     }
@@ -62,12 +61,36 @@ const MatTable = (props) => {
                         { title: 'Name', field: 'name' },
                         { title: 'User Name', field: 'username' },
                         { title: 'Email', field: 'email' },
-                        // { title: 'Address', field: 'address' },
+                        { title: 'Address', field: 'address',
+                            render: rowData =>
+                                <>
+                                    <div>Street: {rowData.address['street']}</div>
+                                    <div>Suite: {rowData.address['suite']}</div>
+                                    <div>City: {rowData.address['city']}</div>
+                                    <div>Zipcode: {rowData.address['zipcode']}</div>
+                                    <div>Geo:
+                                        <div>lat: {rowData.address['geo']['lat']}</div>
+                                        <div>lng: {rowData.address['geo']['lng']}</div>
+                                    </div>
+                                </>
+                        },
                         { title: 'Phone', field: 'phone' },
                         { title: 'Website', field: 'website' },
-                        // { title: 'Company', field: 'company' }
+                        { title: 'Company', field: 'company',
+                            render: rowData =>
+                                <>
+                                    <div>Name: {rowData.company['name']}</div>
+                                    <div>Catch Phrase: {rowData.company['catchPhrase']}</div>
+                                    <div>Bs: {rowData.company['bs']}</div>
+                                </>
+                        }
                     ]}
-                    data={props.users}
+                    data={
+                        props.users.map(user => {
+
+                            return user;
+                        })
+                    }
                     />
             </div>
         </div>
