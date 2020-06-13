@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 const EditData = (props) => {
     const [data, setData] = useState(props.data['value']);
     const [editMode, setEditMode] = useState(false);
-    const [isValidData, setIsValidData] = useState(false);
+    const [isValidData, setIsValidData] = useState(data.length > 0);
 
     const handleChange = (e) => {
         setData(e.target.value);
@@ -11,14 +11,12 @@ const EditData = (props) => {
     }
 
     const handleSave = (e) => {
-        e.preventDefault();
         props.handleData({id: props.data['id'], key: props.data['key'], value: data});
         setEditMode(false);
     }
 
     const handleCancel = (e) => {
-        e.preventDefault();
-        setData(data);
+        setData(props.data['value']);
         setEditMode(false);
     }
 
@@ -30,7 +28,7 @@ const EditData = (props) => {
                         <input value={data} onChange={handleChange}/>
                     </div>
 
-                    <button className="btn btn-success btn-sm m-1" onClick={handleSave} disabled={isValidData}>Save</button>
+                    <button className="btn btn-success btn-sm m-1" onClick={handleSave} disabled={!isValidData}>Save</button>
                     <button className="btn btn-secondary btn-sm m-1" onClick={handleCancel}>Cancel</button>
                 </div>
                 :
